@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CartScrollBar from "./CartScrollBar";
 import Counter from "./Counter";
+import { Link } from 'react-router-dom';
 import EmptyCart from "../empty-states/EmptyCart";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import { findDOMNode } from "react-dom";
@@ -209,12 +210,14 @@ class Header extends Component {
             >
               <CartScrollBar>{view}</CartScrollBar>
               <div className="action-block">
+              <Link to="/shop">
                 <button
                   type="button"
                   className={this.state.cart.length > 0 ? " " : "disabled"}
                 >
                   PROCEED TO CHECKOUT
                 </button>
+                </Link>
               </div>
             </div>
           </div>
