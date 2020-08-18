@@ -45,14 +45,11 @@ class Shops extends Component {
             };
             var orders_payload={
               "order_status": "Pending",
-              "user_id": "p_007",
+              "user_id": "5f2bfeab086ac71228d7db22",//To be changed
               "shop_id": shop.id,
-              "ordered_items": [ {
-                  "product": "potato",
-                  "price": 200,
-                  "quantity": 100
-                }
-              ]
+              "user_name":"Test user",
+              "Estimated_price":340,
+              "ordered_items": JSON.parse(localStorage.getItem("cart1"))
             }
             var data = JSON.stringify(orders_payload);
             xhr.send(data);
