@@ -14,6 +14,7 @@ class Header extends Component {
       cart: this.props.cartItems,
       mobileSearch: false
     };
+    
   }
   handleCart(e) {
     e.preventDefault();

@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import QuickView from "./QuickView";
 import "../scss/style.scss";
 
+
 class App extends Component {
   constructor() {
     super();
@@ -88,13 +89,16 @@ class App extends Component {
           cartBounce: false,
           quantity: 1
         });
-        console.log(this.state.quantity);
-        console.log(this.state.cart);
+        // console.log("cart",this.state.cart);
+        
+        
       }.bind(this),
       1000
     );
     this.sumTotalItems(this.state.cart);
     this.sumTotalAmount(this.state.cart);
+    console.log(JSON.stringify(this.state.cart));
+    localStorage.setItem("cart1",JSON.stringify(this.state.cart));
   }
   handleRemoveProduct(id, e) {
     let cart = this.state.cart;
@@ -152,8 +156,23 @@ class App extends Component {
       modalActive: false
     });
   }
+  
+  listupdate(){
+    var pro=[];
+    var qua=[];
+    for(i=0 ;i<this.props.cart.length;i++){
+
+      pro.push(cart[i].product);
+      qua.push(cart[i].quantity);
+
+    }
+    console.log("pro",pro);
+    localStorage.setItem("cart_pro",pro);
+    localStorage.setItem("cart_qua",qua);
+  }
 
   render() {
+    
     return (
       <div className="container">
         <Header
@@ -176,6 +195,7 @@ class App extends Component {
           productQuantity={this.state.quantity}
           updateQuantity={this.updateQuantity}
           openModal={this.openModal}
+          
         />
         <Footer />
         <QuickView
