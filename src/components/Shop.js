@@ -7,7 +7,7 @@ import Products from "./Products";
 import Footer from "./Footer";
 import QuickView from "./QuickView";
 import "../scss/style.scss";
-import Merchant from "./merchant";
+import Merchant from "./Merchant";
 import Merchants from "./Merchants";
 
 class App extends Component {
